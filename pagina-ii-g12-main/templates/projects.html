@@ -1,0 +1,12 @@
+<h1>Projects</h1>
+{% if proj %}
+  <ul>
+    {% for project in proj %}
+      <li>
+        <a href="/projects/">{{ project.name }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p> No projects.</p>
+{% endif %}

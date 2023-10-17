@@ -1,0 +1,16 @@
+<div class="container container_align">
+  {% load static %}
+  <div class="border" id="canvas_container">
+    <canvas id="canvas_medidor"></canvas>
+  </div>
+  <p id="sound_level">0 - BAJO</p>
+  <a class="play_stop_btn nav_link nav_link_dzn1 nav_link_normal_font border" id="mic_button">
+    <svg id="play_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+      <path d="M320-200v-560l440 280-440 280Z"/>
+    </svg>
+    <svg id="stop_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" style="display: none;">
+      <path d="M240-240v-480h480v480H240Z"/>
+    </svg>
+  </a>
+
+</div>

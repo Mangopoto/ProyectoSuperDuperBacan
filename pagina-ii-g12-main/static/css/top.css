@@ -1,0 +1,27 @@
+header {
+  background: var(--lightcolor);
+  width: 100%;
+  height: var(--header-height);
+  padding: 0 var(--default-px);
+  top: 0;
+  position: sticky;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--darkcoloropacity);
+}
+.nav_title {
+  font-size: var(--font-size);
+}
+.nav {
+  max-width: 1400px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav_section {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--font-size)*0.5);
+}
