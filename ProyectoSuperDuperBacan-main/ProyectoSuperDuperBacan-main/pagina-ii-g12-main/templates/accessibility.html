@@ -1,0 +1,25 @@
+<a class="accessibility" id="accessibility">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="currentColor">
+    <path d="M480-800q-33 0-56.5-23.5T400-880q0-33 23.5-56.5T480-960q33 0 56.5 23.5T560-880q0 33-23.5 56.5T480-800ZM360-200v-480q-60-5-122-15t-118-25l20-80q78 21 166 30.5t174 9.5q86 0 174-9.5T820-800l20 80q-56 15-118 25t-122 15v480h-80v-240h-80v240h-80ZM320 0q-17 0-28.5-11.5T280-40q0-17 11.5-28.5T320-80q17 0 28.5 11.5T360-40q0 17-11.5 28.5T320 0Zm160 0q-17 0-28.5-11.5T440-40q0-17 11.5-28.5T480-80q17 0 28.5 11.5T520-40q0 17-11.5 28.5T480 0Zm160 0q-17 0-28.5-11.5T600-40q0-17 11.5-28.5T640-80q17 0 28.5 11.5T680-40q0 17-11.5 28.5T640 0Z"/>
+  </svg>
+</a>
+<dialog class="modal" id="modal">
+  <div class="modal_div">
+    <h2>Accesibilidad</h2>
+    <div class="modal_container">
+      <h3>Tamaño de la fuente</h3>
+      <p id="pixel_display">18px</p>
+      <input type="range" min="12" max="36" value="18" class="slider" id="slider">
+      <button class="nav_link nav_link_dzn2 nav_link_small_font border" id="reset_font_size">Tamaño por defecto</button>
+    </div>
+    <button id="close_modal">
+      <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+        <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+      </svg>
+    </button>
+  </div>
+  <p>*En mobile no funciona tan bien*</p>
+</dialog>
+{% load static %}
+<script src="{% static 'js/modal.js' %}"></script>
+<script src="{% static 'js/accessibility.js' %}"></script>

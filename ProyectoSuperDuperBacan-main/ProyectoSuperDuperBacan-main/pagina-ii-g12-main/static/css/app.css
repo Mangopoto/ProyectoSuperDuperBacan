@@ -1,0 +1,21 @@
+#canvas_container {
+  height: 500px;
+  width: 100px;
+  background-color: var(--lightcolor);
+  border: 1px solid var(--darkcoloropacity);
+  overflow: hidden;
+}
+#canvas_medidor {
+  width: 100px;
+}
+.play_stop_btn {
+  padding: calc(var(--default-px)*1.3);
+}
+.play_stop_btn svg {
+  fill: var(--lightcolor);
+  width: calc(var(--default-px)*1.8);
+  height: calc(var(--default-px)*1.8);
+}
+#sound_level {
+  width: fit-content;
+}
