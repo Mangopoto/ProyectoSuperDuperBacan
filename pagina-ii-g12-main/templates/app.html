@@ -5,7 +5,7 @@
 {% block medidor %}
   {% include "medidor.html" %}
 {% endblock medidor %}
-<script src="{% static 'js/app.js' %}"></script>
+<script src="{% static 'js/medidor.js' %}"></script>
 
 
 <!--todo esto es para el menu de contextos-->
@@ -16,9 +16,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exposed Dropdown Menu</title>
     <style>
-      
+        /* Your CSS styles here */
         .dropdown {
-            position: relative;
+            position: absolute;
+            height: 5px;
             display: inline-block;
             cursor: pointer;
         }
@@ -50,35 +51,38 @@
 </head>
 <body>
     <div class="dropdown">
-        <span>Dropdown</span>
+        <span id="context-option">Estandar</span>
         <div class="dropdown-content">
-            <a href="#" class="dropdown-button">Option 1</a>
-            <a href="#" class="dropdown-button">Option 2</a>
-            <a href="#" class="dropdown-button">Option 3</a>
+            <a href="#" class="dropdown-button">Silencioso</a>
+            <a href="#" class="dropdown-button">Estandar</a>
+            <a href="#" class="dropdown-button">Ruidoso</a>
+            <a href="#" class="dropdown-button">Concierto</a>
         </div>
     </div>
 
     <script>
-        
+        // Declare currentContext as a global variable
+        let currentContext = "Estandar";
+
         const dropdown = document.querySelector('.dropdown');
         const dropdownContent = document.querySelector('.dropdown-content');
-
-        
+    
         dropdown.addEventListener('click', function() {
             dropdown.classList.toggle('open');
         });
 
-      
         const buttons = document.querySelectorAll('.dropdown-button');
         buttons.forEach(function(button) {
             button.addEventListener('click', function(event) {
                 const clickedButton = event.target;
                 const selectedOption = clickedButton.textContent;
+
+                // Update the global variable currentContext
+                currentContext = selectedOption;
+
                 console.log('Button clicked:', clickedButton);
                 console.log('Selected option:', selectedOption);
-               
                 dropdown.classList.remove('open');
-             
                 dropdown.querySelector('span').textContent = selectedOption;
             });
         });
