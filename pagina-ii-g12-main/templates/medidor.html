@@ -1,16 +1,59 @@
-<div class="container container_align">
+<div class="container container_align max_width">
   {% load static %}
-  <div class="border" id="canvas_container">
-    <canvas id="canvas_medidor"></canvas>
+  <div class="medidor_container container_align container_dzn boxshadow border">
+    <div class="border" id="canvas_container">
+      <canvas id="canvas_medidor"></canvas>
+    </div>
+    <span class="no_select" id="sound_level">Apagado</span>
+    <a class="play_stop_btn nav_link nav_link_dzn1 nav_link_normal_font border" id="mic_button">
+      <svg id="play_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+        <path d="M320-200v-560l440 280-440 280Z"/>
+      </svg>
+      <svg id="stop_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" style="display: none;">
+        <path d="M240-240v-480h480v480H240Z"/>
+      </svg>
+    </a>
   </div>
-  <p id="sound_level">0 - BAJO</p>
-  <a class="play_stop_btn nav_link nav_link_dzn1 nav_link_normal_font border" id="mic_button">
-    <svg id="play_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
-      <path d="M320-200v-560l440 280-440 280Z"/>
-    </svg>
-    <svg id="stop_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" style="display: none;">
-      <path d="M240-240v-480h480v480H240Z"/>
-    </svg>
-  </a>
+  <div class="personalizado_section container_dzn boxshadow border" id="switch_personalizado_section">
+    <input type="range" id="context_personalizado" min="0" max="255" class="slider_personalizado_context slider2">
+    <span id="context_personalizado_number">nulldb</span>
+  </div>
 
+  <script>    
+    let custom_range = localStorage.getItem("valor_rango_local");
+
+    if (!("valor_rango_local" in localStorage)) {
+      localStorage.setItem("valor_rango_local",150)
+      custom_range = localStorage.getItem("valor_rango_local")
+    }
+
+    let slider_personalizado_context = document.querySelector("#context_personalizado");
+    let context_custom_number = document.querySelector("#context_personalizado_number");
+
+    if (custom_range === null) {
+      context_custom_number.textContent = "200db";
+      slider_personalizado_context.value = 200;
+    } else {
+      context_custom_number.textContent = `${custom_range}db`;
+      slider_personalizado_context.value = custom_range;
+    };
+
+    slider_personalizado_context.addEventListener("input", ()=>{
+      const new_range = slider_personalizado_context.value;
+
+      localStorage.setItem("valor_rango_local", new_range);
+      custom_range = localStorage.getItem("valor_rango_local");
+
+      context_custom_number.textContent = `${new_range}db`;
+    });
+  </script>
+
+  <div class="section_slider container_dzn boxshadow border">
+    <span class="no_select">Ecualizador</span>
+    <div class="slider_box">
+      <input type="range" id="calibrador" min="0" max="300" value="100" step="5" class="slider slider_value">
+      <div class="line"></div>
+    </div>
+    <span class="no_select" id="valor_calibrado">-</span>
+  </div>
 </div>

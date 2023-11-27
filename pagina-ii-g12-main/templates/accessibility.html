@@ -7,10 +7,13 @@
   <div class="modal_div">
     <h2>Accesibilidad</h2>
     <div class="modal_container">
-      <h3>Tamaño de la fuente</h3>
+      <h3>Tamaño del texto</h3>
       <p id="pixel_display">18px</p>
-      <input type="range" min="12" max="36" value="18" class="slider" id="slider">
-      <button class="nav_link nav_link_dzn2 nav_link_small_font border" id="reset_font_size">Tamaño por defecto</button>
+      <div class="slider_box_custom">
+        <input type="range" min="12" max="28" value="18" id="slider" class="slider slider_value">
+        <div class="line_custom"></div>
+      </div>
+      <button class="nav_link nav_link_dzn1 nav_link_small_font border" id="reset_font_size">Tamaño por defecto</button>
     </div>
     <button id="close_modal">
       <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
@@ -18,7 +21,6 @@
       </svg>
     </button>
   </div>
-  <p>*En mobile no funciona tan bien*</p>
 </dialog>
 {% load static %}
 <script src="{% static 'js/modal.js' %}"></script>
